@@ -32,9 +32,12 @@ public class MapperExample {
                 .filter(MapperExample::isNotSam)
                 .map(User::new)
                 .collect(Collectors.toList());
+
+        int sum = userList.stream()
+                .mapToInt(user -> user.getAge()).sum();
+        System.out.println(sum);
+
     }
-
-
 
 
     private static boolean isNotSam(String name) {
